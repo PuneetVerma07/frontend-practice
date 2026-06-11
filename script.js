@@ -1,12 +1,13 @@
-const obj1 = {
-    name: "Puneet",
-    address: {
-        city: "ghaziabad"
-    }
-}
+let num1 = Number(prompt("Enter first number"))
+let operator = prompt("Enter operation ( + - * / ) : ")
+let num2 = Number(prompt("Enter second number"))
 
-const obj2 = JSON.parse(JSON.stringify(obj1))
+let result;
 
-obj2.address.city = "Delhi"
+if (operator == "+") result = num1 + num2;
+else if (operator == "-") result = num1 - num2
+else if (operator == "*") result = num1 * num2;
+else if (operator == "/") result = num2 !== 0 ? num1/num2 : "Can not divided by zero"
+else "Invalid operator"
 
-console.log(obj1.address.city)
+console.log(result)
