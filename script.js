@@ -1,6 +1,12 @@
-import greet, { add, sub} from "./math.js"
+const obj1 = {
+    name: "Puneet",
+    address: {
+        city: "ghaziabad"
+    }
+}
 
-console.log(add(5,3))
-console.log(sub(10, 3))
+const obj2 = JSON.parse(JSON.stringify(obj1))
 
-greet();
+obj2.address.city = "Delhi"
+
+console.log(obj1.address.city)
