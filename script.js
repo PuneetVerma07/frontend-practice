@@ -1,27 +1,23 @@
-let todos = []
+/* Student grade tracker */
 
-function addTodo(task) {
-    todos.push({id: todos.length + 1, task, done: false})
+let students = [
+    { sName: "Aman", marks: [80, 90, 75] },
+    { sName: 'priya', marks: [95, 85, 92] },
+    { sName: 'Raj', marks: [60, 55, 70] }
+]
+
+function getAverage(marks) {
+    return marks.reduce((sum, m) => sum + m, 0) / marks.length;
 }
 
-function completeTodo(id) {
-    let todo = todos.find(t => t.id == id)
-    if(todo) todo.done = true
+function getGrade(avg) {
+     if(avg >= 90) return "A"
+     if(avg >= 75) return "B"
+    if (avg >= 60) return "C"
+    return "F"
 }
 
-function removeTodo(id) {
-    todos = todos.filter(t => t.id !==  id)
-}
-
-function showTodos() {
-    todos.forEach((t) => {
-        console.log(`${t.id}. [${t.done ? "x" : " "}] ${t.task}`)
-    })
-}
-
-addTodo("Learn JS")
-addTodo("Build project")
-addTodo("sleep")
-completeTodo(1)
-removeTodo(3)
-showTodos()
+students.forEach(s => {
+    let avg = getAverage(s.marks);
+    console.log(`${s.sName}: Avg = ${avg.toFixed(2)}, Grade = ${getGrade(avg)}`)
+})
