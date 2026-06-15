@@ -1,23 +1,33 @@
-/* Student grade tracker */
+/* Program : Shopping cart logic */
 
-let students = [
-    { sName: "Aman", marks: [80, 90, 75] },
-    { sName: 'priya', marks: [95, 85, 92] },
-    { sName: 'Raj', marks: [60, 55, 70] }
-]
+let cart = []
 
-function getAverage(marks) {
-    return marks.reduce((sum, m) => sum + m, 0) / marks.length;
+function addItem(name, price, qty = 1) {
+    let existing = cart.find(item => item.name === name)
+    if (existing) {
+        existing.qty += qty
+    } else {
+        cart.push({ name, price, qty })
+    }
 }
 
-function getGrade(avg) {
-     if(avg >= 90) return "A"
-     if(avg >= 75) return "B"
-    if (avg >= 60) return "C"
-    return "F"
+function removeItem(name) {
+    cart = cart.filter(item => item.name !== name);
 }
 
-students.forEach(s => {
-    let avg = getAverage(s.marks);
-    console.log(`${s.sName}: Avg = ${avg.toFixed(2)}, Grade = ${getGrade(avg)}`)
-})
+function getTotal() {
+    return cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+}
+
+function showCart() {
+    cart.forEach(item => {
+        console.log(`${item.name} x ${item.qty} = ₹${item.price * item.qty}`)
+    })
+    console.log(`Total : ₹${getTotal()}`)
+}
+
+addItem("Notebook", 50, 2)
+addItem("Pen", 10, 5)
+addItem("Notebook", 50)
+removeItem("Notebook")
+showCart()
