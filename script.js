@@ -1,33 +1,17 @@
-/* Program : Shopping cart logic */
+/* word frequency counter */
 
-let cart = []
+function wordFrequency(text) {
+    let words = text.toLowerCase().split(/\s+/);
+    let freq = {}
 
-function addItem(name, price, qty = 1) {
-    let existing = cart.find(item => item.name === name)
-    if (existing) {
-        existing.qty += qty
-    } else {
-        cart.push({ name, price, qty })
-    }
-}
-
-function removeItem(name) {
-    cart = cart.filter(item => item.name !== name);
-}
-
-function getTotal() {
-    return cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-}
-
-function showCart() {
-    cart.forEach(item => {
-        console.log(`${item.name} x ${item.qty} = ₹${item.price * item.qty}`)
+    words.forEach((word) => {
+        freq[word] = (freq[word] || 0) + 1;
     })
-    console.log(`Total : ₹${getTotal()}`)
+
+    return freq;
 }
 
-addItem("Notebook", 50, 2)
-addItem("Pen", 10, 5)
-addItem("Notebook", 50)
-removeItem("Notebook")
-showCart()
+let text = "the quick brown fox jumps over the lazy dog the fox is quick"
+
+console.log(wordFrequency(text))
+
