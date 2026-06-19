@@ -1,8 +1,14 @@
-function Person(name) {
-    this.name = name;
+const animal = {
+    eats: true,
+    walk() {
+        console.log("animal chal rha hai");
+    },
 }
 
-const p = new Person("rahul")
+const dog = Object.create(animal)
 
-console.log((p.__proto__ === Person.prototype))
+dog.bark = true
 
+console.log(dog.eats)
+console.log(dog.bark)
+dog.walk();
