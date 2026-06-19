@@ -1,14 +1,32 @@
-const animal = {
-    eats: true,
-    walk() {
-        console.log("animal chal rha hai");
-    },
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+
+    eat() {
+        console.log(`${this.name}  kha rha hai...`)
+    }
 }
 
-const dog = Object.create(animal)
+class Dog extends Animal {
+    constructor(name, breed) {
+        super(name);
+        this.breed = breed;
+    }
 
-dog.bark = true
+    bark() {
+        console.log(`${this.name} bhonk rha hai`)
+    }
+}
 
-console.log(dog.eats)
-console.log(dog.bark)
-dog.walk();
+const d = new Dog("tommy", "labrador")
+
+console.log(d)
+d.eat();
+d.bark();
+
+const d2 = new Dog("bruno", "jerman")
+console.log(d2)
+
+d2.eat();
+d2.bark();
