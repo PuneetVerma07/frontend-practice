@@ -1,32 +1,26 @@
-class Animal {
-    constructor(name) {
-        this.name = name;
+class Person {
+    constructor(first, last) {
+        this.first = first;
+        this.last = last;
     }
 
-    eat() {
-        console.log(`${this.name}  kha rha hai...`)
-    }
-}
-
-class Dog extends Animal {
-    constructor(name, breed) {
-        super(name);
-        this.breed = breed;
+    get fullName() {
+        console.log(this.first + " " + this.last)
     }
 
-    bark() {
-        console.log(`${this.name} bhonk rha hai`)
+    set fullName(value) {
+        let parts = value.split(" ")
+        this.first = parts[0];
+        this.last = parts[1];
     }
 }
 
-const d = new Dog("tommy", "labrador")
+const p = new Person("Rahul", "Sharma")
 
-console.log(d)
-d.eat();
-d.bark();
+console.log(p)
+p.fullName
 
-const d2 = new Dog("bruno", "jerman")
-console.log(d2)
+p.fullName = "Priya Verma"
 
-d2.eat();
-d2.bark();
+p.fullName
+console.log(p.first)
