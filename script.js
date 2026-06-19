@@ -1,21 +1,21 @@
-function MakeStudents(fname, lname, contact, isVerified) {
-    this.fname = fname;
-    this.lname = lname;
-    this.contact = contact;
-    this.isVerified = isVerified;
+function introduce(city, country) {
+    console.log(`I am ${this.name} from ${city}, ${country}`)
 }
 
-MakeStudents.prototype.showProfile = function () {
-    if (this.isVerified) {
-        console.log(`${this.fname} ${this.lname}`)
-    } else {
-        console.log("User not found")
-    }
+const person = {
+    name :"Rahul"
 }
 
-let s1 = new MakeStudents("puneet", "verma", 999, true)
+introduce.call(person, "Mumbai", "INDIA")
 
-console.log(s1)
+introduce.apply(person, ["Indore", "India"])
 
-s1.showProfile();
+const boundFn = introduce.bind(person, "Agra", "India")
+boundFn();
+
+/* or */
+
+const fn = introduce.bind(person)
+
+fn("Ghaziabad", "India")
 
