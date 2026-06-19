@@ -1,21 +1,8 @@
-function introduce(city, country) {
-    console.log(`I am ${this.name} from ${city}, ${country}`)
+function Person(name) {
+    this.name = name;
 }
 
-const person = {
-    name :"Rahul"
-}
+const p = new Person("rahul")
 
-introduce.call(person, "Mumbai", "INDIA")
-
-introduce.apply(person, ["Indore", "India"])
-
-const boundFn = introduce.bind(person, "Agra", "India")
-boundFn();
-
-/* or */
-
-const fn = introduce.bind(person)
-
-fn("Ghaziabad", "India")
+console.log((p.__proto__ === Person.prototype))
 
