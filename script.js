@@ -1,26 +1,23 @@
-class Person {
-    constructor(first, last) {
-        this.first = first;
-        this.last = last;
+/* Class */
+
+class Person{
+    constructor(name) {
+        this.name = name;
     }
 
-    get fullName() {
-        console.log(this.first + " " + this.last)
-    }
-
-    set fullName(value) {
-        let parts = value.split(" ")
-        this.first = parts[0];
-        this.last = parts[1];
+    greet() {
+        return "Hi" + this.name;
     }
 }
 
-const p = new Person("Rahul", "Sharma")
+/* constructor function */
 
-console.log(p)
-p.fullName
+function Person2(name) {
+    this.name = name;   
+}
 
-p.fullName = "Priya Verma"
+Person2.prototype.greet = function () {
+    return "Hi" + this.name;
+}
 
-p.fullName
-console.log(p.first)
+/* both are equal means behaviour 100% same */
