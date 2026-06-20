@@ -1,6 +1,10 @@
-console.log("start")
+function greet(name) {
+    console.log("Hello " + name)
+}
 
-setTimeout(function(){console.log("timeout")},3000)
+function welcome(callback) {
+    let user = "Rahul";
+    callback(user)
+}
 
-console.log("end")
-
+welcome(greet);
