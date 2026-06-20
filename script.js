@@ -1,23 +1,6 @@
-/* Class */
+console.log("start")
 
-class Person{
-    constructor(name) {
-        this.name = name;
-    }
+setTimeout(function(){console.log("timeout")},3000)
 
-    greet() {
-        return "Hi" + this.name;
-    }
-}
+console.log("end")
 
-/* constructor function */
-
-function Person2(name) {
-    this.name = name;   
-}
-
-Person2.prototype.greet = function () {
-    return "Hi" + this.name;
-}
-
-/* both are equal means behaviour 100% same */
